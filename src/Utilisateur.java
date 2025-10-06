@@ -1,9 +1,11 @@
+
 public class Utilisateur {
 
     private int id;
     private String nom;
     private String prenom;
     private String email;
+
 
     public Utilisateur(int id, String nom, String prenom, String email) {
         this.id = id;
