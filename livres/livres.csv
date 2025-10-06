@@ -1,6 +1,6 @@
-id,titre,auteur,genre
-1,Le Petit Prince,Saint-Exupery,Jeunesse
-2,1984,Orwell,Science-Fiction
-3,Fables de La Fontaine,La Fontaine,Classique
-4,Dune,Herbert,Science-Fiction
-5,L etranger,Camus,Classique
+id,titre,auteur,genre,true
+1,Le Petit Prince,Saint-Exupery,Jeunesse,true
+2,1984,Orwell,Science-Fiction,true
+3,Fables de La Fontaine,La Fontaine,Classique,true
+4,Dune,Herbert,Science-Fiction,true
+5,L etranger,Camus,Classique,true
