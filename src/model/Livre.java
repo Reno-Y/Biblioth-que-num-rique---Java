@@ -1,3 +1,5 @@
+package model;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -136,7 +138,7 @@ public class Livre {
 
     @Override
     public String toString() {
-        return "Livre{" +
+        return "model.Livre{" +
                 "id=" + id +
                 ", titre='" + titre + '\'' +
                 ", auteur='" + auteur + '\'' +

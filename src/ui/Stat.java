@@ -88,7 +88,7 @@ public class Stat {
         }
 
         // --- Top auteurs les plus empruntés ---
-        // Si la liste Emprunts est correctement remplie (Emprunt contient Livre),
+        // Si la liste Emprunts est correctement remplie (model.Emprunt contient model.Livre),
         // on compte par auteur. Sinon on retombe sur les livres non disponibles.
         List<Map.Entry<String, Long>> topAuteurs;
 

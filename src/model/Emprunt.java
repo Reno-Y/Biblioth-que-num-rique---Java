@@ -1,4 +1,4 @@
-import model.Utilisateur;
+package model;
 
 import java.time.LocalDate;
 public class Emprunt {
@@ -9,7 +9,7 @@ public class Emprunt {
     private Livre livre;
     private Utilisateur utilisateur;
 
-    public Emprunt( LocalDate dateEmprunt, LocalDate dateRetour, Livre livre, Utilisateur utilisateur) {
+    public Emprunt(LocalDate dateEmprunt, LocalDate dateRetour, Livre livre, Utilisateur utilisateur) {
         this.dateEmprunt = dateEmprunt;
         this.dateRetour = dateRetour;
         this.livre = livre;
