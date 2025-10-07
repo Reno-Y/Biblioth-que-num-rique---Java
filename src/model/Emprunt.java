@@ -1,3 +1,5 @@
+import model.Utilisateur;
+
 import java.time.LocalDate;
 public class Emprunt {
 
