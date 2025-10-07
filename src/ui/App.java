@@ -10,7 +10,6 @@ import model.Utilisateur;
 public class App {
 
 
-
     private static final Scanner SC = new Scanner(System.in);
 
     public static void main(String[] args) {
