@@ -14,24 +14,19 @@ public class App {
 
     public static void main(String[] args) {
         Bibliotheque bib = new Bibliotheque();
+        RechercheService search = new RechercheService();
 
-        // 1) Charger les livres depuis un CSV (adapter le chemin si besoin)
-        //    -> Utilise la méthode statique que tu as déjà dans model.Livre
         try {
             List<Livre> livres = Livre.lireLivresDepuisCSV("livres/livres.csv"); // <-- mets ton vrai chemin
             bib.Livres.addAll(livres);
         } catch (Exception e) {
             System.err.println("Impossible de charger les livres : " + e.getMessage());
         }
-
-        // 2) Créer 2-3 utilisateurs de test si la liste est vide
         if (bib.Utilisateurs.isEmpty()) {
             bib.Utilisateurs.add(new Utilisateur(1, "Sghaier", "Souhaib", "souhaib@example.com"));
             bib.Utilisateurs.add(new Utilisateur(2, "Gabriel", "V.", "gabriel@example.com"));
             bib.Utilisateurs.add(new Utilisateur(3, "Nathan", "C.", "nathan@example.com"));
         }
-
-        // 3) Boucle de menu
         int choix;
         do {
             afficherMenu();
@@ -47,6 +42,15 @@ public class App {
             }
             System.out.println();
         } while (choix != 0);
+
+        List<Livre> trouves = search.byTitre(bib.Livres, "harry");
+        trouves.forEach(l -> System.out.println(l.getTitre()));
+
+        List<Livre> auteurs = search.byAuteur(bib.Livres, "rowling");
+        auteurs.forEach(l -> System.out.println(l.getTitre()));
+
+        List<Livre> top3 = search.topK(bib.Livres, Comparator.comparing(Livre::getTitre), 3);
+        top3.forEach(l -> System.out.println(l.getTitre()));
 
         SC.close();
     }
@@ -66,12 +70,10 @@ public class App {
     }
 
     private static void listerLivresDisponibles(Bibliotheque bib) {
-        // Ta méthode s'appelle "afficheLivresDisponibles" (sans 'r')
         bib.afficheLivresDisponibles();
     }
 
     private static void listerTousLesLivres(Bibliotheque bib) {
-        // Tu as déjà une méthode utilitaire dans model.Livre
         Livre.afficherLivres(bib.Livres);
     }
 
@@ -109,12 +111,8 @@ public class App {
         Utilisateur u = choisirUtilisateur(bib);
 
         try {
-            // ATTENTION : dans ta Bibliotheque, tu utilises Livres.get(id)
-            // => ça suppose que "id" est l'index dans la liste (0..n-1), pas l'ID du champ model.Livre.
-            // Si ton CSV a des IDs 1,2,3,... ce n’est pas forcément égal à l’index.
-            // Pour rester fidèle à ton code, on suppose ici que id == index.
             bib.emprunterLivre(id, u);
-            System.out.println("✅ model.Emprunt effectué.");
+            System.out.println("✅  Le livre est emprunté !");
         } catch (LivreIndisponibleException e) {
             System.out.println("❌ " + e.getMessage());
         } catch (IndexOutOfBoundsException e) {
@@ -153,7 +151,7 @@ public class App {
             System.out.print("Veuillez entrer un entier : ");
         }
         int v = SC.nextInt();
-        SC.nextLine(); // consommer le '\n'
+        SC.nextLine();
         return v;
     }
 
@@ -173,5 +171,7 @@ public class App {
             return bib.Utilisateurs.get(0);
         }
         return bib.Utilisateurs.get(idx);
+
     }
+
 }
