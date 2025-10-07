@@ -12,7 +12,7 @@ public class App {
         // 1) Charger les livres depuis un CSV (adapter le chemin si besoin)
         //    -> Utilise la méthode statique que tu as déjà dans Livre
         try {
-            List<Livre> livres = Livre.lireLivresDepuisCSV("livres.csv"); // <-- mets ton vrai chemin
+            List<Livre> livres = Livre.lireLivresDepuisCSV("livres/livres.csv"); // <-- mets ton vrai chemin
             bib.Livres.addAll(livres);
         } catch (Exception e) {
             System.err.println("Impossible de charger les livres : " + e.getMessage());
