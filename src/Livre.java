@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Livre {
@@ -12,7 +13,7 @@ public class Livre {
     private String auteur;
     private boolean disponible;
 
-    public Livre(int id, String titre,String genre, String auteur, boolean disponible) {
+    public Livre(int id, String titre,String auteur, String genre , boolean disponible) {
         this.id = id;
         this.titre = titre;
         this.auteur = auteur;
@@ -100,6 +101,25 @@ public class Livre {
         System.out.println("Total : " + livres.size() + " livre(s)\n");
     }
 
+    // Méthodes de recherche avec Stream API
+    public static List<Livre> rechercherParTitre(List<Livre> livres, String motCle) {
+        return livres.stream()
+                .filter(livre -> livre.getTitre().toLowerCase().contains(motCle.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    public static List<Livre> rechercherParAuteur(List<Livre> livres, String auteur) {
+        return livres.stream()
+                .filter(livre -> livre.getAuteur().toLowerCase().contains(auteur.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    public static List<Livre> rechercherParGenre(List<Livre> livres, String genre) {
+        return livres.stream()
+                .filter(livre -> livre.getGenre().equalsIgnoreCase(genre))
+                .collect(Collectors.toList());
+    }
+
     public void afficherDetails() {
         System.out.println("\n╔══════════════════════════════════════╗");
         System.out.println("║       DÉTAILS DU LIVRE               ║");
@@ -124,5 +144,7 @@ public class Livre {
                 ", disponible=" + disponible +
                 '}';
     }
+
+
 
 }

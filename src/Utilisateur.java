@@ -1,3 +1,4 @@
+
 public class Utilisateur {
 
     private int id;
@@ -5,7 +6,8 @@ public class Utilisateur {
     private String prenom;
     private String email;
 
-    public Utilisateur(int id, String nom, String prenomv, String email) {
+
+    public Utilisateur(int id, String nom, String prenom, String email) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
