@@ -4,6 +4,7 @@ import java.util.*;
 import core.Bibliotheque;
 import core.LivreIndisponibleException;
 import model.Livre;
+import model.Media;
 import model.Utilisateur;
 
 
@@ -43,7 +44,7 @@ public class App {
             System.out.println();
         } while (choix != 0);
 
-        List<Livre> trouves = search.byTitre(bib.Livres, "harry");
+        List<Media> trouves = search.byTitre(bib.Livres, "harry").reversed();
         trouves.forEach(l -> System.out.println(l.getTitre()));
 
         List<Livre> auteurs = search.byAuteur(bib.Livres, "rowling");

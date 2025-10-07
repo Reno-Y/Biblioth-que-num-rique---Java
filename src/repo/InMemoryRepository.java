@@ -9,11 +9,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-/**
- * Implémentation thread-safe du Repository en mémoire
- * Étudiant A - InMemoryRepository avec gestion de la concurrence
- * @param <T> Type de média stocké
- */
+
 public class InMemoryRepository<T extends Media> implements Repository<T> {
 
     private final Map<Integer, T> storage;
