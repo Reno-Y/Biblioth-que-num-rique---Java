@@ -7,7 +7,7 @@ import model.Utilisateur;
 import java.time.LocalDate;
 import java.util.*;
 
-class Bibliotheque{
+class  Bibliotheque{
     List<Livre> Livres = new ArrayList<>();
     List<Utilisateur> Utilisateurs = new ArrayList<>() ;
     List<Emprunt> Emprunts = new LinkedList<>();
@@ -29,7 +29,7 @@ class Bibliotheque{
         String lst = "Livres disponibles : ";
         for(Livre l: Livres){
             if(l.isDisponible()){
-                lst = lst + l.getTitre() + " ";
+                lst = lst + l.getTitre() + " ; ";
             }
         }
         System.out.println(lst);
