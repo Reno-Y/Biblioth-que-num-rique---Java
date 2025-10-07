@@ -6,10 +6,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Classe de démonstration du Catalogue avec wildcards
- * Étudiant A - Exemples d'utilisation
- */
 public class CatalogueDemo {
 
     public static void main(String[] args) {
@@ -95,9 +91,6 @@ public class CatalogueDemo {
         demonstrationThreadSafety(catalogue);
     }
 
-    /**
-     * Démontre le comportement thread-safe du catalogue
-     */
     private static void demonstrationThreadSafety(Catalogue catalogue) {
         System.out.println("Ajout concurrent de 100 livres depuis 10 threads...");
 
