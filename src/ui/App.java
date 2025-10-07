@@ -1,6 +1,11 @@
 package ui;
 
 import java.util.*;
+import core.Bibliotheque;
+import core.LivreIndisponibleException;
+import model.Livre;
+import model.Utilisateur;
+
 
 public class App {
 
