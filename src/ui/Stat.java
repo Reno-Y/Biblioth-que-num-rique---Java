@@ -120,6 +120,8 @@ public class Stat {
         return new Resultats(nbDispo, nbTotal, tauxParGenre, topAuteurs, nbEmprunts);
     }
 
+
+
     // ---- Affichage console (utilitaire pratique) ----
     public static void afficher(Resultats r) {
         System.out.println(r.toConsoleString());

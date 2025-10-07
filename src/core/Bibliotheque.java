@@ -25,6 +25,8 @@ public class Bibliotheque{
             }
         }
     }
+
+
     public void afficheLivresDisponibles(){
         String lst = "Livres disponibles : ";
         for(Livre l: Livres){

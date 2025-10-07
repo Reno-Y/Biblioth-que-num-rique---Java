@@ -99,6 +99,7 @@ public class App {
         }
     }
 
+
     private static void emprunterLivre(Bibliotheque bib) {
         if (bib.Utilisateurs.isEmpty()) {
             System.out.println("Aucun utilisateur n'existe. Ajoutez-en au moins un.");
@@ -122,6 +123,8 @@ public class App {
             System.out.println("❌ Erreur inattendue : " + e.getMessage());
         }
     }
+
+
 
     private static void rendreLivre(Bibliotheque bib) {
         if (bib.Utilisateurs.isEmpty()) {
