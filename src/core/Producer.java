@@ -29,7 +29,7 @@ public class Producer implements Runnable {
         }
     }
 
-    // Parse une ligne CSV en Event
+
     private Event parseLine(String line) {
         String[] parts = line.split(";");
         String type = parts[0].trim();
@@ -40,7 +40,7 @@ public class Producer implements Runnable {
                 String personne = parts[3].trim();
                 String genre = parts[4].trim();
                 // Par défaut on peut supposer que les NEW sont des Livres
-                Media m = new Livre(id, titre, personne, genre);
+                Media m = new LivreMedia(id, titre, personne, genre);
                 return new NewMedia(m);
             }
             case "UPD" -> {

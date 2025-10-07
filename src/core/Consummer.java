@@ -1,4 +1,5 @@
 package core;
+import model.*;
 
 import java.util.concurrent.BlockingQueue;
 
@@ -16,7 +17,7 @@ public class Consumer implements Runnable {
     public void run() {
         try {
             while (true) {
-                Event ev = queue.take();  // attend si vide
+                Event ev = queue.take();
                 if (ev instanceof PoisonPill) {
                     break;
                 }
@@ -33,11 +34,11 @@ public class Consumer implements Runnable {
         } else if (ev instanceof RemoveMedia e) {
             catalogue.removeMediaById(e.mediaId());
         } else if (ev instanceof UpdateCopies e) {
-            // TODO : mettre à jour le stock si Catalogue gère les copies
+            catalogue.UpdateCopies(e.mediaId());
         } else if (ev instanceof Borrow e) {
-            // TODO : enregistrer un emprunt (statistiques)
+            catalogue.Borrow(e.mediaId());
         } else if (ev instanceof Return e) {
-            // TODO : enregistrer un retour
+            catalogue.Return(e.mediaId());
         }
     }
 }
