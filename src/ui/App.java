@@ -12,7 +12,7 @@ public class App {
         Bibliotheque bib = new Bibliotheque();
 
         // 1) Charger les livres depuis un CSV (adapter le chemin si besoin)
-        //    -> Utilise la méthode statique que tu as déjà dans Livre
+        //    -> Utilise la méthode statique que tu as déjà dans model.Livre
         try {
             List<Livre> livres = Livre.lireLivresDepuisCSV("livres/livres.csv"); // <-- mets ton vrai chemin
             bib.Livres.addAll(livres);
@@ -67,7 +67,7 @@ public class App {
     }
 
     private static void listerTousLesLivres(Bibliotheque bib) {
-        // Tu as déjà une méthode utilitaire dans Livre
+        // Tu as déjà une méthode utilitaire dans model.Livre
         Livre.afficherLivres(bib.Livres);
     }
 
@@ -105,11 +105,11 @@ public class App {
 
         try {
             // ATTENTION : dans ta Bibliotheque, tu utilises Livres.get(id)
-            // => ça suppose que "id" est l'index dans la liste (0..n-1), pas l'ID du champ Livre.
+            // => ça suppose que "id" est l'index dans la liste (0..n-1), pas l'ID du champ model.Livre.
             // Si ton CSV a des IDs 1,2,3,... ce n’est pas forcément égal à l’index.
             // Pour rester fidèle à ton code, on suppose ici que id == index.
             bib.emprunterLivre(id, u);
-            System.out.println("✅ Emprunt effectué.");
+            System.out.println("✅ model.Emprunt effectué.");
         } catch (LivreIndisponibleException e) {
             System.out.println("❌ " + e.getMessage());
         } catch (IndexOutOfBoundsException e) {
