@@ -1,5 +1,9 @@
 package ui;
 
+import core.Bibliotheque;
+import model.Emprunt;
+import model.Livre;
+
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;

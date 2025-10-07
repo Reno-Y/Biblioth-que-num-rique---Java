@@ -1,9 +1,13 @@
 package ui;
 
 import java.util.*;
+import core.Bibliotheque;
+import core.LivreIndisponibleException;
+import model.Livre;
+import model.Utilisateur;
+
 
 public class App {
-
 
 
     private static final Scanner SC = new Scanner(System.in);
