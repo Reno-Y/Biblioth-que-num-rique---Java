@@ -31,7 +31,7 @@ public class Bibliotheque{
         String lst = "Livres disponibles : ";
         for(Livre l: Livres){
             if(l.isDisponible()){
-                lst = lst + l.getTitre() + " ";
+                lst = lst + l.getTitre() + " ; ";
             }
         }
         System.out.println(lst);
