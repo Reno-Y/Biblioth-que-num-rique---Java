@@ -11,10 +11,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/**
- * Catalogue thread-safe regroupant les trois dépôts spécialisés
- * Étudiant A - Catalogue avec wildcards et opérations génériques
- */
 public class Catalogue {
 
     private final Repository<LivreMedia> livresRepository;
@@ -84,10 +80,6 @@ public class Catalogue {
 
     // === MÉTHODES GÉNÉRIQUES AVEC WILDCARDS ===
 
-    /**
-     * Recherche dans tous les dépôts selon un prédicat
-     * Utilise ? extends Media pour accepter n'importe quel type de média
-     */
     public List<? extends Media> rechercherTous(Predicate<? super Media> predicate) {
         lock.readLock().lock();
         try {
@@ -104,25 +96,16 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Recherche par genre dans tous les dépôts
-     */
     public List<? extends Media> rechercherParGenre(String genre) {
         return rechercherTous(media -> media.genre().equalsIgnoreCase(genre));
     }
 
-    /**
-     * Recherche par titre (partiel) dans tous les dépôts
-     */
     public List<? extends Media> rechercherParTitre(String titrePartiel) {
         return rechercherTous(media ->
             media.titre().toLowerCase().contains(titrePartiel.toLowerCase())
         );
     }
 
-    /**
-     * Retourne tous les médias du catalogue
-     */
     public List<? extends Media> obtenirTousLesMedias() {
         lock.readLock().lock();
         try {
@@ -136,10 +119,6 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Trie une collection de médias selon un comparateur
-     * Utilise ? super pour accepter des comparateurs plus généraux
-     */
     public <T extends Media> List<T> trier(
             List<T> medias,
             Comparator<? super T> comparator) {
@@ -153,9 +132,6 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Trie tous les médias par titre
-     */
     public List<? extends Media> trierParTitre() {
         lock.readLock().lock();
         try {
@@ -167,9 +143,6 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Trie tous les médias par genre puis par titre
-     */
     public List<? extends Media> trierParGenreEtTitre() {
         lock.readLock().lock();
         try {
@@ -182,10 +155,6 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Filtre et collecte selon un type spécifique
-     * Démontre l'utilisation de wildcards avec instanceof
-     */
     @SuppressWarnings("unchecked")
     public <T extends Media> List<T> filtrerParType(Class<T> type) {
         lock.readLock().lock();
@@ -199,9 +168,6 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Compte le nombre total de médias dans le catalogue
-     */
     public int compterTousLesMedias() {
         lock.readLock().lock();
         try {
@@ -213,9 +179,6 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Statistiques par type de média
-     */
     public Map<String, Integer> obtenirStatistiques() {
         lock.readLock().lock();
         try {
@@ -230,10 +193,6 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Groupe les médias par genre
-     * Utilise ? extends Media pour la flexibilité
-     */
     public Map<String, List<Media>> grouperParGenre() {
         lock.readLock().lock();
         try {
@@ -247,9 +206,6 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Vide tous les dépôts
-     */
     public void viderCatalogue() {
         lock.writeLock().lock();
         try {
@@ -261,9 +217,6 @@ public class Catalogue {
         }
     }
 
-    /**
-     * Recherche un média par ID dans tous les dépôts
-     */
     public Optional<? extends Media> rechercherParId(int id) {
         lock.readLock().lock();
         try {
