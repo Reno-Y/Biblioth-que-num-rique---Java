@@ -29,7 +29,7 @@ public class Producer implements Runnable {
         }
     }
 
-    // Parse une ligne CSV en Event
+
     private Event parseLine(String line) {
         String[] parts = line.split(";");
         String type = parts[0].trim();
