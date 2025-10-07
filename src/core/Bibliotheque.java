@@ -13,7 +13,7 @@ public class Bibliotheque{
     public List<Emprunt> Emprunts = new LinkedList<>();
 
     public void emprunterLivre(int idLivre, Utilisateur u) throws LivreIndisponibleException {
-        if(Livres.get(idLivre).isDisponible()) throw new LivreIndisponibleException("Ce livre n'est pas disponible");
+        if (!Livres.get(idLivre).isDisponible()) throw new LivreIndisponibleException("Ce livre n'est pas disponible");
         Emprunts.add(new Emprunt(LocalDate.now(),LocalDate.now().plusDays(15),Livres.get(idLivre),u));
         Livres.get(idLivre).setDisponible(false);
     }
