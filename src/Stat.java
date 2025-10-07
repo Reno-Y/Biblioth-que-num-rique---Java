@@ -26,6 +26,7 @@ public class Stat {
             this.nbEmprunts = nbEmprunts;
         }
 
+
         public String toConsoleString() {
             StringBuilder sb = new StringBuilder();
             sb.append("--- STATISTIQUES ---\n");
